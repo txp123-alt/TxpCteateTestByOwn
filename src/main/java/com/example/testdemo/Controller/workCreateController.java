@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/createWork")
 @Slf4j
+@CrossOrigin
 public class workCreateController {
 
     @Autowired

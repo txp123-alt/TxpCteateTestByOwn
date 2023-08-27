@@ -4,10 +4,7 @@ import com.example.testdemo.Service.workCreateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/createWork")
@@ -17,10 +14,9 @@ public class workCreateController {
     @Autowired
     private workCreateService workCreateService;
 
-    @PostMapping("/firstCreate")
-    public ResponseEntity<String> ctrateWork(@RequestBody String requestMessage){
-        log.info("接收到请求:{}",requestMessage);
-        workCreateService.createWork(requestMessage);
+    @GetMapping("/firstCreate")
+    public ResponseEntity<String> ctrateWork(){
+        workCreateService.createWork("requestMessage");
         return ResponseEntity.ok("success");
     }
 }
